@@ -152,33 +152,34 @@ Once the system is running, you can access:
 {
     "patient_id": int,
     "patient_name": str,
-    "age": int,
+    "date_of_birth": datetime,
     "gender": str,
-    "contact_info": str
+    "address": str,
+    "created_at": timestamp
 }
 ```
 
 ### Vital Signs
 ```python
 {
-    "vital_id": int,
+    "vital_sign_id": int,
     "patient_id": int,
     "timestamp": datetime,
     "heart_rate": float,
     "blood_pressure": str,
     "temperature": float,
-    "oxygen_saturation": float
+    "respiration_rate": float
 }
 ```
 
 ### Medical History
 ```python
 {
-    "history_id": int,
+    "medical_history_id": int,
     "patient_id": int,
-    "diagnosis": str,
-    "treatment": str,
-    "date_diagnosed": date
+    "condition": str,
+    "diagnosis_date": datetime,
+    "notes": str,
 }
 ```
 
