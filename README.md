@@ -59,7 +59,7 @@ This healthcare pipeline processes patient information, vital signs, and medical
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/arshad-godhrawala/healthcare-pipeline.git
+git clone https://github.com/arshad-godhrawala/healthcare-data-pipeline.git
 cd healthcare-pipeline
 ```
 
