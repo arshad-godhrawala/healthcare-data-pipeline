@@ -1,0 +1,101 @@
+medical_history_id,patient_id,condition,diagnosis_date,notes
+1,43,Arthritis,2020-12-07,New diagnosis of arthritis. Prescription provided.
+2,11,High Cholesterol,2020-08-30,Follow-up appointment for high cholesterol management.
+3,31,High Cholesterol,2021-10-07,Diagnosed with high cholesterol. Monitoring required.
+4,3,Obesity,2023-01-05,Routine check for obesity. No complications.
+5,7,Asthma,2025-06-02,New diagnosis of asthma. Prescription provided.
+6,15,Asthma,2024-10-15,Diagnosed with asthma. Monitoring required.
+7,48,Back Pain,2022-05-22,Follow-up appointment for back pain management.
+8,24,Hypertension,2024-09-25,Follow-up appointment for hypertension management.
+9,38,Obesity,2024-02-04,Diagnosed with obesity. Monitoring required.
+10,30,Arthritis,2023-01-29,New diagnosis of arthritis. Prescription provided.
+11,6,Insomnia,2022-01-21,New diagnosis of insomnia. Prescription provided.
+12,7,Fatigue,2023-11-17,Follow-up appointment for fatigue management.
+13,18,Asthma,2022-02-22,Follow-up appointment for asthma management.
+14,22,Obesity,2022-04-04,Patient reports obesity symptoms. Treatment initiated.
+15,42,Hypertension,2020-12-14,Routine check for hypertension. No complications.
+16,33,Allergies,2021-06-23,Follow-up appointment for allergies management.
+17,4,Arthritis,2025-04-09,Patient reports arthritis symptoms. Treatment initiated.
+18,26,Migraine,2022-09-05,Routine check for migraine. No complications.
+19,41,Diabetes Type 2,2022-05-31,Diagnosed with diabetes type 2. Monitoring required.
+20,20,Headache,2024-03-12,Routine check for headache. No complications.
+21,19,Arthritis,2025-07-02,Routine check for arthritis. No complications.
+22,46,Fatigue,2021-07-04,Routine check for fatigue. No complications.
+23,3,Arthritis,2021-09-13,New diagnosis of arthritis. Prescription provided.
+24,34,Hypertension,2022-08-27,New diagnosis of hypertension. Prescription provided.
+25,44,Fatigue,2024-02-08,Diagnosed with fatigue. Monitoring required.
+26,3,Fatigue,2025-06-12,New diagnosis of fatigue. Prescription provided.
+27,30,Obesity,2021-01-27,Follow-up appointment for obesity management.
+28,9,Fatigue,2024-06-20,Diagnosed with fatigue. Monitoring required.
+29,23,Anxiety,2021-08-22,Routine check for anxiety. No complications.
+30,13,High Cholesterol,2023-10-26,Diagnosed with high cholesterol. Monitoring required.
+31,20,Obesity,2023-03-24,Diagnosed with obesity. Monitoring required.
+32,48,High Cholesterol,2024-08-10,New diagnosis of high cholesterol. Prescription provided.
+33,23,Migraine,2020-12-05,Routine check for migraine. No complications.
+34,28,Depression,2023-06-10,Follow-up appointment for depression management.
+35,27,GERD,2023-02-05,Routine check for gerd. No complications.
+36,5,GERD,2022-05-06,New diagnosis of gerd. Prescription provided.
+37,11,Back Pain,2025-07-29,Routine check for back pain. No complications.
+38,23,Obesity,2021-09-08,Patient reports obesity symptoms. Treatment initiated.
+39,4,Insomnia,2024-01-06,Follow-up appointment for insomnia management.
+40,49,Obesity,2023-10-27,Patient reports obesity symptoms. Treatment initiated.
+41,12,Depression,2021-11-19,Routine check for depression. No complications.
+42,31,Anxiety,2025-02-02,Routine check for anxiety. No complications.
+43,25,Migraine,2024-12-29,Follow-up appointment for migraine management.
+44,2,High Cholesterol,2025-02-03,Routine check for high cholesterol. No complications.
+45,15,Headache,2023-03-31,Diagnosed with headache. Monitoring required.
+46,19,Asthma,2023-03-02,Diagnosed with asthma. Monitoring required.
+47,10,GERD,2021-06-04,Patient reports gerd symptoms. Treatment initiated.
+48,22,Diabetes Type 2,2023-02-26,Diagnosed with diabetes type 2. Monitoring required.
+49,49,Hypertension,2023-07-01,Diagnosed with hypertension. Monitoring required.
+50,27,GERD,2022-09-25,Diagnosed with gerd. Monitoring required.
+51,8,Hypertension,2022-10-14,Routine check for hypertension. No complications.
+52,15,GERD,2022-10-24,Patient reports gerd symptoms. Treatment initiated.
+53,9,Headache,2023-07-29,Follow-up appointment for headache management.
+54,42,Fatigue,2022-01-10,Routine check for fatigue. No complications.
+55,11,Headache,2025-05-01,Diagnosed with headache. Monitoring required.
+56,17,Arthritis,2020-08-22,Patient reports arthritis symptoms. Treatment initiated.
+57,29,High Cholesterol,2025-01-15,Patient reports high cholesterol symptoms. Treatment initiated.
+58,12,High Cholesterol,2025-07-05,Follow-up appointment for high cholesterol management.
+59,13,High Cholesterol,2023-11-01,Patient reports high cholesterol symptoms. Treatment initiated.
+60,21,Fatigue,2020-11-13,Diagnosed with fatigue. Monitoring required.
+61,36,Hypertension,2021-01-23,Follow-up appointment for hypertension management.
+62,26,Hypertension,2023-06-14,Patient reports hypertension symptoms. Treatment initiated.
+63,18,Fatigue,2023-11-25,Diagnosed with fatigue. Monitoring required.
+64,48,High Cholesterol,2022-08-26,Routine check for high cholesterol. No complications.
+65,30,Headache,2023-07-09,Diagnosed with headache. Monitoring required.
+66,12,Back Pain,2021-05-11,Routine check for back pain. No complications.
+67,27,Allergies,2021-01-12,Patient reports allergies symptoms. Treatment initiated.
+68,17,GERD,2024-07-07,Follow-up appointment for gerd management.
+69,31,Back Pain,2024-07-23,Diagnosed with back pain. Monitoring required.
+70,43,Migraine,2024-01-26,Patient reports migraine symptoms. Treatment initiated.
+71,49,Migraine,2023-11-15,Follow-up appointment for migraine management.
+72,34,Arthritis,2022-06-21,New diagnosis of arthritis. Prescription provided.
+73,37,Allergies,2022-02-14,Diagnosed with allergies. Monitoring required.
+74,32,Obesity,2021-06-14,Follow-up appointment for obesity management.
+75,24,Headache,2024-05-06,Routine check for headache. No complications.
+76,25,Back Pain,2023-11-14,Diagnosed with back pain. Monitoring required.
+77,14,Headache,2020-08-28,Patient reports headache symptoms. Treatment initiated.
+78,5,GERD,2023-04-08,Patient reports gerd symptoms. Treatment initiated.
+79,15,Insomnia,2021-07-28,Diagnosed with insomnia. Monitoring required.
+80,13,Anxiety,2024-03-21,New diagnosis of anxiety. Prescription provided.
+81,19,Anxiety,2022-05-31,Patient reports anxiety symptoms. Treatment initiated.
+82,28,Allergies,2022-02-16,Follow-up appointment for allergies management.
+83,40,Insomnia,2022-08-24,Routine check for insomnia. No complications.
+84,49,Diabetes Type 2,2021-11-21,Follow-up appointment for diabetes type 2 management.
+85,40,High Cholesterol,2024-10-02,Follow-up appointment for high cholesterol management.
+86,48,Insomnia,2024-03-25,Diagnosed with insomnia. Monitoring required.
+87,3,Headache,2022-09-06,Patient reports headache symptoms. Treatment initiated.
+88,17,High Cholesterol,2020-09-29,Routine check for high cholesterol. No complications.
+89,28,Depression,2025-05-09,Diagnosed with depression. Monitoring required.
+90,9,Anxiety,2025-06-30,Patient reports anxiety symptoms. Treatment initiated.
+91,1,High Cholesterol,2024-06-08,Patient reports high cholesterol symptoms. Treatment initiated.
+92,33,Anxiety,2021-04-26,Patient reports anxiety symptoms. Treatment initiated.
+93,36,Allergies,2022-07-29,Patient reports allergies symptoms. Treatment initiated.
+94,50,GERD,2022-01-09,Patient reports gerd symptoms. Treatment initiated.
+95,14,Allergies,2021-09-08,Diagnosed with allergies. Monitoring required.
+96,5,Hypertension,2023-05-23,Follow-up appointment for hypertension management.
+97,23,Hypertension,2022-03-21,Follow-up appointment for hypertension management.
+98,36,Arthritis,2023-10-06,Patient reports arthritis symptoms. Treatment initiated.
+99,22,Anxiety,2021-02-08,Routine check for anxiety. No complications.
+100,35,Allergies,2023-04-10,New diagnosis of allergies. Prescription provided.

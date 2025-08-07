@@ -1,0 +1,322 @@
+/* Healthcare Dashboard Styles */
+
+:root {
+    --primary-color: #007bff;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --info-color: #17a2b8;
+    --light-bg: #f8f9fa;
+    --dark-bg: #343a40;
+}
+
+body {
+    background-color: var(--light-bg);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navigation */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.navbar-text {
+    font-size: 0.9rem;
+}
+
+/* Stat Cards */
+.stat-card {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.stat-card i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.stat-card p {
+    color: #6c757d;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Patient List */
+.patient-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.patient-item {
+    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.patient-item:hover {
+    background: #f8f9fa;
+    border-color: var(--primary-color);
+}
+
+.patient-item.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.patient-item .patient-name {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.patient-item .patient-info {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.patient-item.active .patient-info {
+    color: rgba(255,255,255,0.8);
+}
+
+/* Charts */
+.chart-container {
+    position: relative;
+    height: 300px;
+}
+
+/* Alerts */
+.alert-item {
+    padding: 0.75rem;
+    border-left: 4px solid var(--danger-color);
+    background: #fff5f5;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.alert-item.warning {
+    border-left-color: var(--warning-color);
+    background: #fffbf0;
+}
+
+.alert-item.info {
+    border-left-color: var(--info-color);
+    background: #f0f8ff;
+}
+
+.alert-item .alert-severity {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.alert-item .alert-message {
+    margin: 0.25rem 0;
+}
+
+.alert-item .alert-time {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+/* Health Summary */
+.health-metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.health-metric:last-child {
+    border-bottom: none;
+}
+
+.health-metric .metric-label {
+    font-weight: 500;
+}
+
+.health-metric .metric-value {
+    font-weight: bold;
+}
+
+.health-metric .metric-trend {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+}
+
+.health-metric .metric-trend.up {
+    background: #d4edda;
+    color: #155724;
+}
+
+.health-metric .metric-trend.down {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.health-metric .metric-trend.stable {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+/* Buttons */
+.btn-action {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    margin: 0.1rem;
+}
+
+/* Loading Spinner */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .stat-card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .stat-card i {
+        font-size: 1.5rem;
+    }
+    
+    .patient-list {
+        max-height: 300px;
+    }
+}
+
+/* Forecast Summary */
+.forecast-metric {
+    background: #f8f9fa;
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+}
+
+.forecast-metric .metric-title {
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.forecast-metric .metric-value {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+/* Connection Status */
+.connection-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.connection-indicator.connected {
+    background: var(--success-color);
+}
+
+.connection-indicator.disconnected {
+    background: var(--danger-color);
+}
+
+/* Modal Customization */
+.modal-header {
+    background: var(--primary-color);
+    color: white;
+}
+
+.modal-header .btn-close {
+    filter: invert(1);
+}
+
+/* Form Styling */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Card Enhancements */
+.card {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.card-header {
+    background: white;
+    border-bottom: 1px solid #dee2e6;
+    font-weight: 600;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: #6c757d;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+/* Success/Error Messages */
+.message {
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.message.info {
+    background: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+} 

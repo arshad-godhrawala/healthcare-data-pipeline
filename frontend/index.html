@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Pipeline Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-heartbeat me-2"></i>
+                Healthcare Pipeline Dashboard
+            </a>
+            <div class="navbar-nav ms-auto">
+                <span class="navbar-text">
+                    <i class="fas fa-circle text-success me-1"></i>
+                    <span id="connection-status">Connected</span>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid mt-3">
+        <!-- Dashboard Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="stat-card">
+                                    <i class="fas fa-users text-primary"></i>
+                                    <h3 id="total-patients">0</h3>
+                                    <p>Total Patients</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="stat-card">
+                                    <i class="fas fa-activity text-success"></i>
+                                    <h3 id="active-patients">0</h3>
+                                    <p>Active Patients</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="stat-card">
+                                    <i class="fas fa-heartbeat text-danger"></i>
+                                    <h3 id="total-readings">0</h3>
+                                    <p>Recent Readings</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="stat-card">
+                                    <i class="fas fa-exclamation-triangle text-warning"></i>
+                                    <h3 id="active-alerts">0</h3>
+                                    <p>Active Alerts</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Dashboard -->
+        <div class="row">
+            <!-- Patient List -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-user-friends me-2"></i>Patients</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <button class="btn btn-primary btn-sm" onclick="loadPatients()">
+                                <i class="fas fa-sync-alt me-1"></i>Refresh
+                            </button>
+                        </div>
+                        <div id="patient-list" class="patient-list">
+                            <!-- Patient list will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vital Signs Chart -->
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-chart-line me-2"></i>Vital Signs Monitor</h5>
+                        <div class="float-end">
+                            <select id="vital-sign-selector" class="form-select form-select-sm" onchange="updateVitalSignChart()">
+                                <option value="heart_rate">Heart Rate</option>
+                                <option value="temperature">Temperature</option>
+                                <option value="oxygen_saturation">Oxygen Saturation</option>
+                                <option value="systolic">Blood Pressure (Systolic)</option>
+                                <option value="diastolic">Blood Pressure (Diastolic)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="vitalSignsChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Health Summary and Alerts -->
+        <div class="row mt-4">
+            <!-- Health Summary -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-clipboard-list me-2"></i>Health Summary</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="health-summary">
+                            <p class="text-muted">Select a patient to view health summary</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alerts -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-exclamation-triangle me-2"></i>Alerts</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="alerts-container">
+                            <p class="text-muted">No active alerts</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forecasting Section -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-chart-area me-2"></i>Health Forecasting</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <canvas id="forecastChart" width="400" height="200"></canvas>
+                            </div>
+                            <div class="col-md-4">
+                                <div id="forecast-summary">
+                                    <h6>Forecast Summary</h6>
+                                    <div id="forecast-details">
+                                        <p class="text-muted">Select a patient to view forecast</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Patient Modal -->
+    <div class="modal fade" id="addPatientModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Patient</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addPatientForm">
+                        <div class="mb-3">
+                            <label for="patientName" class="form-label">Patient Name</label>
+                            <input type="text" class="form-control" id="patientName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="patientDOB" class="form-label">Date of Birth</label>
+                            <input type="date" class="form-control" id="patientDOB" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="patientGender" class="form-label">Gender</label>
+                            <select class="form-control" id="patientGender">
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="patientAddress" class="form-label">Address</label>
+                            <textarea class="form-control" id="patientAddress" rows="2"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="addPatient()">Add Patient</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Vital Sign Modal -->
+    <div class="modal fade" id="addVitalSignModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Vital Sign Reading</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addVitalSignForm">
+                        <div class="mb-3">
+                            <label for="vitalHeartRate" class="form-label">Heart Rate (BPM)</label>
+                            <input type="number" class="form-control" id="vitalHeartRate" min="40" max="200">
+                        </div>
+                        <div class="mb-3">
+                            <label for="vitalSystolic" class="form-label">Systolic Blood Pressure</label>
+                            <input type="number" class="form-control" id="vitalSystolic" min="70" max="200">
+                        </div>
+                        <div class="mb-3">
+                            <label for="vitalDiastolic" class="form-label">Diastolic Blood Pressure</label>
+                            <input type="number" class="form-control" id="vitalDiastolic" min="40" max="130">
+                        </div>
+                        <div class="mb-3">
+                            <label for="vitalTemperature" class="form-label">Temperature (°C)</label>
+                            <input type="number" class="form-control" id="vitalTemperature" min="35" max="42" step="0.1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="vitalRespiration" class="form-label">Respiration Rate</label>
+                            <input type="number" class="form-control" id="vitalRespiration" min="8" max="40">
+                        </div>
+                        <div class="mb-3">
+                            <label for="vitalOxygen" class="form-label">Oxygen Saturation (%)</label>
+                            <input type="number" class="form-control" id="vitalOxygen" min="70" max="100">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="addVitalSign()">Add Reading</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html> 
